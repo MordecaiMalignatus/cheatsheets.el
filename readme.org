@@ -1,0 +1,36 @@
+* Cheatsheets for Emacs.
+
+Cheatsheets are good, but often worn down by being slower than simply googling
+the same thing for the fifteenth time. So, I've made them more convenient,
+assuming you do your work in Emacs.
+
+** How it works.
+The idea is simple: You keep an org-file per =major-mode= and have instant
+access to this file, by default, by pressing =<f8>=.
+
+** Installation
+
+1. Clone this repo
+2. Symlink the =cheatsheets.el= to somewhere on your loadpath.
+3. Load it. I use =use-package= for this:
+
+#+begin_src elisp
+(use-package cheatsheets
+  :config
+  (setq cheatsheets-directory "~/some/directory/cheatsheets")
+  (cheatsheets-mode))
+#+end_src
+
+** Configuration
+There's two variables that handle everything:
+
+- =cheatsheets-hotkey=: Does exactly what you think it does. Set to =(kbd
+  "<f8>")= by default. This is defined globally on mode-load.
+- =cheatsheets-directory=: Where the cheatsheets are located. Ideally this
+  directory is somewhere git controlled, so you can replicate your cheatsheets
+  on the machines you might need. Defaults to =(concat user-emacs-directory
+  "cheatsheets")=.
+
+** Contributing.
+I'm not good at Elisp and this is a very small package, but I'm very happy to
+discuss changes/improvements to it.
